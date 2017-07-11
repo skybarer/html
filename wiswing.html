@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+    <!--predefinde libraries-->
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+   <!--userdefined libraries-->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.5.0/summernote.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.5.0/summernote.css">
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.5.0/summernote-bs3.css">
+
+    <link rel="stylesheet" type="text/css"
+          href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style type="text/css">
+        body {
+            padding: 40px;
+        }
+    </style>
+
+    <title>Summernote Bootstrap 3 Demo</title>
+
+
+    <script type='text/javascript'>//<![CDATA[
+    $(function () {
+        $('#summernote').summernote({height: 300});
+    });//]]>
+
+    </script>
+</head>
+
+<body>
+<textarea name="summernote" id="summernote" cols="30" rows="10">
+
+</textarea>
+
+<script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent) {
+        window.parent.parent.postMessage(["resultsFrame", {
+            height: document.body.getBoundingClientRect().height,
+            slug: "2AeHs"
+        }], "*")
+    }
+</script>
+
+</body>
+
+</html>
+
