@@ -1,0 +1,103 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>DEMO - Gmail like progress bar with CSS and jQuery</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<style>
+body {
+	background: rgb(245, 245, 245);
+}
+
+.g-div {
+	position: absolute;
+	top: calc(50% -   6px);
+	left: calc(50% -   160px);
+	text-align: center;
+	width: 320px;
+	font-weight: bold;
+}
+
+.loader-gmail {
+	padding: 1px;
+	overflow: hidden;
+	border: 1px solid #a4a4a4;
+}
+
+.progress {
+	width: 320px;
+	height: 8px;
+	background-image: linear-gradient(135deg, #6187f2 0%, #6187f2 25%, #5679da 25%, #5679da
+		50%, #6187f2 50%, #6187f2 75%, #5679da 75%, #5679da 100%);
+	background-repeat: repeat;
+	background-position: 0px 0px;
+	background-size: 16px 16px;
+	background-clip: content-box;
+	animation: loading 1s linear infinite;
+	-o-animation: loading 1s linear infinite;
+	-moz-animation: loading 1s linear infinite;
+	-webkit-animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    from { 
+      background-position:0px 0px;	
+    }
+    to {
+	  background-position: -16px 0px;
+    }
+}
+@-webkit-keyframes loading {
+    from { 
+      background-position:0px 0px;	
+    }
+    to {
+	  background-position: -16px 0px;
+    }
+}
+@-moz-keyframes loading {
+    from { 
+      background-position:0px 0px;	
+    }
+    to {
+	  background-position: -16px 0px;
+    }
+}
+@-o-keyframes loading { 
+    from { 
+      background-position:0px 0px;	
+    }
+    to {
+	  background-position: -16px 0px;
+    }
+}
+</style>
+
+<script>
+    var p=0;
+    function timeout_trigger() {
+	   $(".progress").css("max-width",p+"%");
+	   $(".progress-view").text(p+"%");
+	   if(p!=100) {
+		   setTimeout('timeout_trigger()', 50);
+	   }
+	   p++;
+	}
+    timeout_trigger();
+  </script>
+</head>
+<body>
+<div style="width:730px;margin:auto">
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+	<div class="g-div">
+		Loading <span class="progress-view">100%</span>
+		<div class="loader-gmail">
+			<div class="progress" style="max-width: 100%;"></div>
+		</div>
+	</div>
+</body>
+
+</html>
