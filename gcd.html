@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>gcd of two positive numbesr </title>
+</head>
+<body>
+ <script type="text/javascript">
+ 	var a = parseInt(prompt("Enter a "));
+ 	var b = parseInt(prompt("Enter b "));
+
+ 	while(a != b){
+ 		if(a>b){
+ 			a = a - b;
+ 		}else{
+ 			b = b - a;
+ 		}
+ 	}
+ 	document.writeln("this is the GCD :"+a);
+
+ </script>
+</body>
+</html>

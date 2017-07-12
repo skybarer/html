@@ -1,0 +1,23 @@
+click events:
+--------------
+onClick
+onSubmit
+onDbClick
+onChange
+onSelect
+onLoad
+onFocus
+onBlur
+
+mouse events
+----------------
+onMouseOver
+onMouseOut
+onMouseDown
+onMouseUp
+
+key events
+----------------
+onKeyDown
+onkeyPress
+onKeyUp

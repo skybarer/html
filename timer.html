@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+    <style>
+        #timer {
+            font-size: -webkit-xxx-large;
+            color: lightskyblue;
+            font-size: 120px;
+            text-align: center;
+        }
+        
+        label#minutes,
+        label#seconds {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="timer">
+        <label id="minutes">00</label>:<label id="seconds">00</label>
+        <script type="text/javascript">
+            var minutesLabel = document.getElementById("minutes");
+            var secondsLabel = document.getElementById("seconds");
+            var totalSeconds = 0;
+            setInterval(setTime, 1000);
+            //1000ms = 1s
+
+            function setTime() {
+                ++totalSeconds;
+                secondsLabel.innerHTML = pad(totalSeconds % 60);
+                minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+            }
+
+            function pad(val) {
+                var valString = val + "";
+                if (valString.length < 2) {
+                    return "0" + valString;
+                } else {
+                    return valString;
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

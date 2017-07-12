@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Video.js Example Embed</title>
+    <link href="videojs.progressTips.min.css" rel="stylesheet" type="text/css">
+    <link href="http://vjs.zencdn.net/4.10/video-js.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="video.js"></script>
+    <script src="videojs.progressTips.min.js"></script>
+    <style>
+        html,body,div{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+		   background: transparent;
+		   background-repeat: no-repeat;
+           background-image: -webkit-radial-gradient(circle at 50% 30%, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+		   background-image: radial-gradient(circle at 50% 30%, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+           height:100%;
+		   left: 0;
+		   top: 0;
+		   width: 100%;
+		  
+        }
+        .vjs-volume-menu-button .vjs-menu-content {
+            transform: rotate(-90deg);
+            margin-bottom: 35px !important;
+        }
+        *{
+            box-sizing: inherit;
+            font-size: inherit;
+            color: inherit;
+            line-height: inherit;
+        }
+        ./* video-js .vjs-default-skin {
+            height: 320px;
+            width: 600px;
+        } */
+		
+
+        .vjs-fullscreen,
+        .vjs-fullscreen .vjs-tech {
+            width: 100%!important;
+            height: 100%!important
+        }
+
+        .vjs-volume-menu-button .vjs-menu-content {
+            transform: rotate(-90deg);
+            margin-bottom: 35px !important;
+        }
+
+        .video-js .vjs-big-play-button:before, .video-js .vjs-control:before, .video-js .vjs-modal-dialog, .vjs-modal-dialog .vjs-modal-dialog-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-js .vjs-big-play-button {
+            top: 50%;
+            left: 50%;
+            margin-left: -1em;
+            margin-top: -1em;
+            width: 2em;
+            height: 2em;
+            line-height: 2em;
+            border: none;
+            border-radius: 50%;
+            font-size: 3.5em;
+            background-color: rgb(255, 0, 0);;
+            color: #fff;
+            -webkit-transition: border-color .4s,outline .4s,background-color .4s;
+            -moz-transition: border-color .4s,outline .4s,background-color .4s;
+            -ms-transition: border-color .4s,outline .4s,background-color .4s;
+            -o-transition: border-color .4s,outline .4s,background-color .4s;
+            transition: border-color .4s,outline .4s,background-color .4s;
+        }
+        .vjs-default-skin .vjs-big-play-button:before{
+            line-height: 2em;
+        }
+        .vjs-default-skin.vjs-big-play-centered .vjs-big-play-button{
+            margin-left: -1em;
+            margin-top:-1em;
+        }
+        .center { margin: 0 auto;}
+
+
+    </style>
+
+	<style>
+	  video {
+		  width: 100%    !important;
+		}
+		body {
+		height: 100vh;
+		/* width: 100vh; */
+	   }
+	</style>
+</head>
+<body>
+<h1 style="text-align: center">Video.js Example Embed</h1>
+
+<video preload="auto" id="my_video_1"
+       class="center video-js vjs-default-skin vjs-big-play-centered vjs-controls-enabled vjs-playing " controls preload="auto" width="854" height="552" crossorigin="anonymous"
+       data-setup='{"nativeControlsForTouch": false, "playbackRates": [0.5, 1, 1.5, 2]}'>
+    <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
+    <source src="http://vjs.zencdn.net/v/oceans.webm" type='video/webm'>
+</video>
+
+<script>
+    ! function(e, t) {
+        "use strict";
+        e.videojs_hotkeys = {
+            version: "0.2.5"
+        };
+        var r = function(e) {
+            var t = this,
+                    r = {
+                        volumeStep: .1,
+                        seekStep: 5,
+                        enableMute: !0,
+                        enableFullscreen: !0,
+                        enableNumbers: !0
+                    };
+            e = e || {};
+            var l = e.volumeStep || r.volumeStep,
+                    n = e.seekStep || r.seekStep,
+                    u = e.enableMute || r.enableMute,
+                    a = e.enableFullscreen || r.enableFullscreen,
+                    s = e.enableNumbers || r.enableNumbers;
+            t.el().hasAttribute("tabIndex") || t.el().setAttribute("tabIndex", "-1"), t.on("play", function() {
+                var e = t.el().querySelector(".iframeblocker");
+                e && "" == e.style.display && (e.style.display = "block", e.style.bottom = "39px")
+            });
+            var c = function(e) {
+                        var r = e.which;
+                        if (t.controls()) {
+                            {
+                                document.activeElement
+                            }
+                            switch (r) {
+                                case 32:
+                                    e.preventDefault(), t.paused() ? t.play() : t.pause();
+                                    break;
+                                case 37:
+                                    e.preventDefault();
+                                    var c = t.currentTime() - n;
+                                    t.currentTime() <= n && (c = 0), t.currentTime(c);
+                                    break;
+                                case 39:
+                                    e.preventDefault(), t.currentTime(t.currentTime() + n);
+                                    break;
+                                case 40:
+                                    e.preventDefault(), t.volume(t.volume() - l);
+                                    break;
+                                case 38:
+                                    e.preventDefault(), t.volume(t.volume() + l);
+                                    break;
+                                case 77:
+                                    u && t.muted(t.muted() ? !1 : !0);
+                                    break;
+                                case 70:
+                                    a && (t.isFullscreen() ? t.exitFullscreen() : t.requestFullscreen());
+                                    break;
+                                default:
+                                    if ((r > 47 && 59 > r || r > 95 && 106 > r) && s) {
+                                        var i = 48;
+                                        r > 95 && (i = 96);
+                                        var o = r - i;
+                                        e.preventDefault(), t.currentTime(t.duration() * o * .1)
+                                    }
+                            }
+                        }
+                    },
+                    i = function() {
+                        t.controls() && a && (t.isFullscreen() ? t.exitFullscreen() : t.requestFullscreen())
+                    };
+            return t.on("keydown", c), t.on("dblclick", i), this
+        };
+        t.plugin("hotkeys", r)
+    }(window, window.videojs);
+</script>
+<script>
+    var myPlayer = videojs('my_video_1');
+	myPlayer.crossOrigin = 'anonymous';
+    var savedTime = 0;
+    var displayAdTimeout = null;
+
+    myPlayer.ready(function() {
+        this.hotkeys({
+            volumeStep: 0.1,
+            seekStep: 3,
+            enableMute: true,
+            enableFullscreen: true,
+            enableNumbers: true
+        });
+
+        this.progressTips();
+    });
+
+	/*var playPromise = document.querySelector('video').play();
+
+	// In browsers that don’t yet support this functionality,
+	// playPromise won’t be defined.
+	if (playPromise !== undefined) {
+	  playPromise.then(function() {
+		// Automatic playback started!
+	  }).catch(function(error) {
+		// Automatic playback failed.
+		// Show a UI element to let the user manually start playback.
+	  });
+	}*/
+</script>
+</body>
+</html>
