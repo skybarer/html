@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>CodeMirror: HTML completion demo</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://codemirror.net/doc/docs.css">
+ 
+  <link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
+  <link rel="stylesheet" href="http://codemirror.net/addon/hint/show-hint.css">
+  <script src="http://codemirror.net/lib/codemirror.js"></script>
+  <script src="http://codemirror.net/addon/hint/show-hint.js"></script>
+  <script src="http://codemirror.net/addon/hint/xml-hint.js"></script>
+  <script src="http://codemirror.net/addon/hint/html-hint.js"></script>
+  <script src="http://codemirror.net/mode/xml/xml.js"></script>
+  <script src="http://codemirror.net/mode/javascript/javascript.js"></script>
+  <script src="http://codemirror.net/mode/css/css.js"></script>
+  <script src="http://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .CodeMirror {border-top: 1px solid #888; border: 1px solid #888;font-size: 12px;}
+  div#inputTextToShow {
+  width: 600px;
+  height: 400px;
+  margin: 0px;
+  border-color: rgb(169, 169, 169);
+  border: 1px solid;
+ }
+ div#row, div#row1 {margin: 40px;margin: 40px; }
+ .col-sm-6{padding-right:0;padding-left:0}
+     
+  </style>
+</head>
+ 
+<body>
+ <div class="row" id="row">
+  <div id="code" class="col-sm-6" onKeyPress="enterpressalert(event, this)"></div>
+  <div  id="inputTextToShow" class="col-sm-6"  style="overflow-y:scroll;background-color:white;margin: 1px black">
+ </div>
+ <div id="row1">
+  <table>
+  <tbody>
+   <tr>
+    <td>Filename to Save As:</td>
+    <td><input id="inputFileNameToSaveAs"></td>
+    <td><button onclick="saveTextAsFile()">Save Text to File</button></td>
+    <td><button onclick="showTextAsHtml()">show result</button></td>
+   </tr>
+   <tr>
+    <td>Select a File to Load:</td>
+    <td><input type="file" id="fileToLoad"></td>
+    <td><button onclick="loadFileAsText()">Load Selected File</button></td>
+    <td></td>
+   </tr>
+  </tbody>
+ </table>
+ </div>
+    
+ <script type="text/javascript">
+  
+    var editor = CodeMirror(document.getElementById("code"), {
+    mode: "text/html",
+    theme: "default",
+    autoCloseTags: true,
+    lineNumbers: true,
+    extraKeys: {"Ctrl-Space": "autocomplete"},
+    value: document.documentElement.innerHTML,});
+    editor.setSize(600, 400);
+          
+          
+     function showTextAsHtml(){
+   var text = editor.getValue();
+           document.getElementById("inputTextToShow").innerHTML = text;
+   
+  }
+         var textarea= editor.getValue();
+   function enterpressalert(e, textarea) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                //Enter keycode
+                var lines = textarea.value.match(/\n/g).length + 1;
+                document.getElementById("no").innerHTML = "1";
+                var numberoflines = 0;
+                for (numberoflines = 2; numberoflines < lines + 1; numberoflines++) {
+                    document.getElementById("no").innerHTML = document.getElementById("no").innerHTML + "
+" + numberoflines;
+                }
+            }
+            if (code == 8) {
+                //Enter keycode
+                var lines = textarea.value.match(/\n/g).length + 1;
+                document.getElementById("no").innerHTML = "1";
+                var numberoflines = 0;
+                for (numberoflines = 2; numberoflines < lines + 1; numberoflines++) {
+                    document.getElementById("no").innerHTML = document.getElementById("no").innerHTML + "
+" + numberoflines;
+                }
+            }
+        }
+ 
+ 
+  function saveTextAsFile()
+  {
+   var textToSave = editor.getValue();
+   var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+   var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+   var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+    
+   var downloadLink = document.createElement("a");
+   downloadLink.download = fileNameToSaveAs;
+   downloadLink.innerHTML = "Download File";
+   downloadLink.href = textToSaveAsURL;
+   downloadLink.onclick = destroyClickedElement;
+   downloadLink.style.display = "none";
+   document.body.appendChild(downloadLink);
+    
+   downloadLink.click();
+  }
+    
+  function destroyClickedElement(event)
+  {
+   document.body.removeChild(event.target);
+  }
+    
+  function loadFileAsText()
+  {
+   var fileToLoad = document.getElementById("fileToLoad").files[0];
+    
+   var fileReader = new FileReader();
+   fileReader.onload = function(fileLoadedEvent) 
+   {
+    var textFromFileLoaded = fileLoadedEvent.target.result;
+    console.log(textFromFileLoaded);
+    console.log(editor);
+    editor.setValue (textFromFileLoaded);
+   };
+   fileReader.readAsText(fileToLoad, "utf-8");
+  }
+ </script>
+</body>
+</html>
