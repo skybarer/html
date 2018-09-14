@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html> 
+
+<head>
+    <meta charset="utf–8" />
+    <title>JavaScript</title>
+    <style type="text/css">
+        body {
+            background-image: url("background.jpg");
+        }
+
+        #popUpBox {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            background-image: url(backFill.png);
+            display: none;
+        }
+
+        #popUpBox .popupWindow {
+            position: absolute;
+            left: 30%;
+            top: 15%;
+            background-image: url(backFill.png);
+            padding: 20px;
+        }
+
+        #popUpBox .content {
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .outtext {
+            color: #000000;
+            font-family: Calibri;
+            font-size: 18px;
+            text-align: center;
+            line-height: 18px;
+
+        }
+    </style>
+</head>
+
+<body> 
+    <input type="button" onclick="popup()" value="Submit" />
+    <!-- The popup box --> 
+    <div id="popUpBox" style="display: none;">
+        <!-- "display: none" hides it until needed -->
+        <div class="popupWindow">
+            <div class="content">
+                <!--Content goes here -->
+                <div style="float: left; padding: 5px;"><img src="diallonics_logo.png" /></div>
+                <a href="#" onClick="closePopup()"><p style="text-align: right; padding-right: 10px; text-decoration: none; color: #0026ff;     font-family: Calibri;">Close
+                        [X]
+                    </p></a><br><br><br><br><br><br>
+                <div class="outText" style="width: 600px; height: 275px; margin: 0 auto;">
+                    <span style="color: #ff0000; font-family: Calibri; font-size: 120px; line-height: 40px;">Thank you!</span><br><br><br><br>
+                    <span class="outtext">We appreciate your business and look forward to seeing you at the<br>2015 Annual
+                        Conference. If you have any questions, <br>comments, or concerns,please don't hesitate to contact
+                        us:
+                    </span><br><br> 
+                     <span style="color: #ff0000; text-align: center;"><a href="mailto: support@diallonics.com"
+                            style="text-decoration: none; color: #0026ff; font-size: 40px; font-family: Calibri;">eMail Diallonics,
+                            Inc.
+                        </a></span><br><br>
+                    <span style="text-align: center; font-family: Calibri; font-size: 14px; color: #000000;">&copy; 2014
+                        Diallonics, Inc. All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- End popup box -->
+</body>
+
+</html>

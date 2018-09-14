@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Cookies</title>
+<script type="text/javascript">
+    function setCookie(myName, myValue) {
+        var myDate = new Date();
+        myDate.setMonth(myDate.getMonth() + 12);
+        expireDate = myDate.toUTCString();
+        myValue = escape(myValue);
+        document.cookie = myName + "=" + myValue + ";expires=" + expireDate //set alert to make sure it was set  
+        alert(document.cookie);
+    }
+
+    function getCookie(theCookie) {
+        var myCookie = document.cookie;
+        var beginCookie = myCookie.indexOf(" " + theCookie + "=");
+        if (beginCookie == -1) {
+            beginCookie == myCookie.indexOf(theCookie + "=");
+        }
+        if (beginCookie == -1) {
+            myCookie = null;
+        } else {
+            beginCookie = myCookie.indexOf("=", beginCookie) + 1;
+            var endCookie = myCookie.indexOf(";", beginCookie);
+            if (endCookie == -1) {
+                endCookie = myCookie.length;
+            }
+            myCookie = unescape(myCookie.substring(beginCookie, endCookie));
+        }
+        alert(myCookie);
+    }
+</script>
+</head>
+
+<body>
+   <button name="button1" onclick="setCookie('name', 'Chris')">Set Cookie</button>
+    <div id="info"></div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf–8" />
+    <title>Untitled Page</title>
+    <script> 
+        function compareDate(date1, date2) {
+            // Set specificDate to a specified date at midnight.     
+            var specificDate1 = new Date(date1);
+            var specificDate2 = new Date(date2)
+            // Compare the two dates by comparing the millisecond 
+            // representations.     
+            if (specificDate1.getTime() == specificDate2.getTime()) {
+                alert("Same");
+            } else {
+                alert("Different");
+            }
+        }   
+    </script>
+    <form>
+        <input type="text" name="date1" value="dd/m/year" />
+        <input type="text" name="date2" value="dd/m/year" />
+        <input type="button" name="button1" onclick="compareDate(date1.value,date2.value)" value="Compare Date" />
+    </form>
+    </body>
+
+</html>

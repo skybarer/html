@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        function loadXMLDoc(dname) {
+            if (window.XMLHttpRequest) {
+                xhttp = new XMLHttpRequest();
+            } else {
+                xhttp = new ActiveXObject("Microsoft.XMLHttp");
+            }
+            xhttp.open("GET", dname, false);
+            xhttp.send("");
+            return xhttp.responseXML;
+        }
+        xml = loadXMLDoc("Classes.xml");
+        path = "//class/price";
+        var result = xml.evaluate(path, xml, null, XPathResult.NUMBER_TYPE, null);
+        if (result! = null) {
+            alert(result.numberValue);
+        }
+    </script>
+</body>
+
+</html>

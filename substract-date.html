@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function datesDiff(date1, date2) { 
+            // CONSTANT for milliseconds in a day       
+            var DAY = 1000 * 60 * 60 * 24 ;
+            // Convert both dates to milliseconds     
+            var date1_milli = date1.getTime();
+            var date2_milli = date2.getTime();
+            // Calculate the difference in milliseconds         
+            var difference_milli = Math.abs(date1_milli - date2_milli);
+            // Convert back to days and return          
+            return Math.round(difference_milli / DAY);
+        }
+        var current_date = new Date();
+        // Store the date of the next New Year's Day
+        var new_years_date = new Date();
+
+        new_years_date.setYear(new_years_date.getFullYear() + 1);
+        new_years_date.setMonth(0);
+        new_years_date.setDate(1);
+        // Call the days_between function 
+        var days_left = datesDiff(current_date, new_years_date);
+        // Write the result to the page 
+        if (days_left > 1) {
+            document.write("<b>There are " + days_left + " days left this year.</b>");
+        } else {
+            document.write("<b>There is " + days_left + " day left this year.</b>");
+        }
+    </script>
+</body>
+
+</html>

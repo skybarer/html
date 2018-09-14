@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> JavaScript Screen Object </title>
+    <script type="text/javascript">
+        function screenInfo() {
+            var infotxt = " ";
+            infotxt += "<p>Screen width and height: " + screen.width + "*" + screen.height + "</p>";
+            document.getElementById("info").style.font = "12px arial";
+            document.getElementById("info").innerHTML = infotxt;
+        }
+    </script>
+</head>
+
+<body> <button name="button1" onclick="screenInfo()">Get Screen Info</button>
+    <div id="info"></div>
+</body>
+
+</html>

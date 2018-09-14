@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> JavaScript Screen Object </title>
+    <script type="text/javascript">
+        function setCookie(myName, myValue) {
+            var myDate = new Date();
+            myDate.setMonth(myDate.getMonth() + 12);
+            expireDate = myDate.toUTCString();
+            myValue = escape(myValue);
+            document.cookie = myName + "=" + myValue + ";expires=" + expireDate
+            //set alert to make sure it was set alert(document.cookie); 
+        }
+    </script>
+</head>
+
+<body> <button name="button1" onclick="setCookie('name', 'Chris')">Set Cookie</button>
+    <div id="info"></div>
+</body>
+
+</html>

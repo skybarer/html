@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script> function elapsedTime(date1, date2) {
+            var start = new Date(date1);
+            var startmilli = start.getTime();
+
+            var end = new Date(date2);
+            var endmillie = end.getTime();
+            
+            var elapsed = (endmillie - startmilli);
+            alert(millisToDaysHoursMinutes(elapsed));
+        }
+        function millisToDaysHoursMinutes(millis) {
+            var seconds = millis / 1000;
+            var totalMinutes = seconds / 60;
+            var minutesPerDay = 60 * 24;
+            var days = totalMinutes / minutesPerDay;
+            return days;
+        } 
+    </script>
+    <form>
+        Start<input type="text" name="date1" value="dd/m/year" /> <br /> End <input type=" text" name="date2" value="dd/m/year"
+        />
+        <input type=" button" name="button1" onclick="elapsedTime(date1.value, date2.value)" value="Get Elapsed time" />
+    </form>
+</body>
+
+</html>

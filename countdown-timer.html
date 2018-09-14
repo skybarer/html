@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf–8" />
+    <title>JavaScript</title>
+    <script>
+        setInterval('howManySleeps()', 1000);
+
+        function howManySleeps() {
+            thePresent = new Date();
+            chritmas = Date.parse("December 24 , 2019 17:00:00");
+            daysLeft = chritmas - thePresent;
+
+            days = Math.floor(daysLeft / (1000 * 60 * 60 * 24));
+            hours = Math.floor(daysLeft / (1000 * 60 * 60));
+            minutes = Math.floor(daysLeft / (1000 * 60));
+            seconds = Math.floor(daysLeft / (1000));
+
+            dd = days;
+            hh = hours - days * 24;
+            mm = minutes - hours * 60;
+            ss = seconds - minutes * 60;
+            document.getElementById("Countdown").innerHTML= dd +"days" + hh + "hours" + mm + "minutes"+ ss + "seconds";
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div style="text-align:center; vertical-align:middle; width:300px; height:50px; border:2px solid; line-height: 24px; font-family: Arial;">
+        Shopping days until Christmas:<br>
+        <div id="Countdown">
+
+        </div>
+    </div>
+</body>
+
+</html>

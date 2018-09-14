@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script> function getTheDay(date1) {
+            var mydate = new Date(date1);
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+            var n = weekday[mydate.getDay()];
+            alert("The day of the week is " + n + "for the following date: " + mydate.toString());
+        } </script>
+    <form>
+        Date<input type="text" name="date1" value="dd/mm/yyyy" /> <br />
+        <input type="button" name="button1" onclick="getTheDay(date1.value)" value="Get Elapsed time" />
+    </form>
+</body>
+
+</html>

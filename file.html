@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript">
+    var counter = 1;
+    function selectFile(event) {
+      var selFile = event.target.files[0];
+      var readFile = new FileReader();
+      var container = "image" + counter;
+
+      var imgLoc = document.getElementById(container);
+      imgLoc.title = selFile.name;
+      readFile.onload = function (event) {
+        imgLoc.src = event.target.result;
+      }
+      readFile.readAsDataURL(selFile);
+      counter++;
+
+    }
+  </script>
+
+</head>
+
+<body>
+  <input type="file" onchange="selectFile(event)">
+  <br>
+  <div>
+    <img id="image1" width="100">
+    <img id="image2" width="100">
+    <img id="image3" width="100">
+    <img id="image4" width="100">
+    <img id="image5" width="100">
+  </div>
+
+</body>
+
+</html>

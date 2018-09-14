@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="utf–8">
+    <title> JavaScript Windows</title>
+    <script type="text/javascript">
+        var myWin;
+
+        function newWin() {
+            myWin = window.open(" ", " ", "width=400,height=200");
+            myWin.document.write("Welcome to the new window");
+        }
+
+        function resizeWindow1() {
+            myWin.resizeBy(100, 100);
+            myWin.focus();
+        }
+
+        function resizeWindow2() {
+            myWin.resizeTo(100, 100);
+            myWin.focus();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <button name="button1" onclick="newWin()">Open Window!</button><br />
+    <button name="button2" onclick="resizeWindow1()">Resize Window Relative! </button><br />
+    <button name="button3" onclick="resizeWindow2()">Resize Window Specific!</button><br />
+</body>
+
+</html>

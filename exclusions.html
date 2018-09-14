@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+        #grid {
+            width: 30em;
+            height: 30em;
+            display: grid;
+            grid-definition-columns: 25% 25% 25% 25%;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-definition-rows: 25% 25% 25% 25%;
+            grid-template-rows: 25% 25% 25% 25%;
+            border: 1px solid black;
+        }
+
+        #top-right {
+            grid-column: 3;
+            grid-row: 2;
+            border: 1px solid blue;
+            height: 7.5em;
+        }
+
+        #bottom-left {
+            grid-column: 2;
+            grid-row: 3;
+            border: 1px solid red;
+            height: 7.5em;
+        }
+
+        .exclusion {
+            wrap-flow: both;
+        }
+
+        #content {
+            grid-row: 1;
+            grid-row-span: 4;
+            grid-column: 1;
+            grid-column-span: 4;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grid">
+        <div id="top-right" class="exclusion"></div>
+        <div id="bottom-left" class="exclusion"></div>
+    </div>
+</body>
+
+</html>

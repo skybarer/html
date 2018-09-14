@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function loadXMLDoc(dname) {
+            if (window.XMLHttpRequest) {
+                xhttp = new XMLHttpRequest();
+            } else {
+                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.open("GET", dname, false);
+            xhttp.send("");
+            return xhttp.responseXML;
+        }
+        xml = loadXMLDoc("classes.xml");
+        path = "//class/@name";
+        var result = xml.evaluate(path, xml, null, XPathResult.FIRST_ORDERED_NODE_SNAPSHOT_TYPE, null);
+        alert(result.singleNodeValue.textContent + " is the first class");
+    </script>
+</body>
+
+</html>

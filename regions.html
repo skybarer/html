@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Regions</title>
+    <style>
+        .content {
+            flow-into: yourcontent;
+            -webkit-flow-into: yourcontent;
+        }
+
+        .myregion {
+            flow-from: yourcontent;
+            -webkit-flow-from: yourcontent;
+            width: 100px;
+            height: 100px;
+            background-color: #ddd;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</div>
+    <div class="myregion" id="region1"></div>
+    <div class="myregion" id="region2"></div>
+    <div class="myregion" id="region3"></div>
+    <div class="myregion" id="region4"></div>
+    <div class="myregion" id="region5"></div>
+</body>
+
+</html>

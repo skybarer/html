@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function loadXMLDoc(dname) {
+            if (window.XMLHttpRequest) {
+                xhttp = new XMLHttpRequest();
+            } else {
+                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.open("GET", dname, false);
+            xhttp.send("");
+            return xhttp.responseXML;
+        }
+        xml = loadXMLDoc("classes.xml");
+        path = "//class/price";
+        var result = xml.evaluate(path, xml, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (var i = 0; i < result.snapshotLength; i++) {
+            alert(result.snapshotItem(i).textContent);
+        }
+    </script>
+</body>
+
+</html>

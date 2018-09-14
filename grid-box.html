@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .grid {
+            display: grid;
+            grid-definition-columns: 100px 100px;
+            grid-template-columns: 100px 100px;
+            grid-definition-rows: 50px 50px;
+            grid-template-rows: 50px 50px;
+            background-color: #DDD;
+        }
+
+        .grid div {
+            width: 100%;
+            height: 100%;
+        }
+
+        .row1-column1 {
+            background-color: red;
+        }
+
+        .row1-column2 {
+            background-color: green;
+        }
+
+        .row2-column1 {
+            background-color: blue;
+        }
+
+        .row2-column2 {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+            <div class="row1-column1"> </div>
+            <div class="row2-column2"> </div>
+            <div class="row3-column3"> </div>
+            <div class="row4-column4"> </div>
+    </div>
+</body>
+
+</html>

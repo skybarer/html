@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf–8">
+    <title>JavaScript Windows</title>
+    <script type="text/javascript">
+        var myWin;
+
+        function newWin() {
+            myWin = window.open("", "", width = 400, height = 200, top = 150, left = 150 ");
+                myWin.document.write("Welcome to the new window ");
+        }
+
+        function closeWin() {
+            if (myWin && !myWin.closed) {
+                myWin.close(); 
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1"> </div> 
+     <button name="button1" onclick="newWin()">Open Window!</button> <br />
+     <button name="button2" onclick="closeWin()">Close Window!</button> <br />
+</body>
+
+</html>

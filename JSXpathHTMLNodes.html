@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>XPath HTML Nodes</title>
+    <script> function
+            getHTMLNodes() {
+            path = "//p";
+            var nodes = document.evaluate(path, document, null, XPathResult.ANY_TYPE, null);
+            var result = nodes.iterateNext();
+            msg = "";
+            while (result) {
+                alert(result.textContent);
+                result = nodes.iterateNext();
+            }
+            //alert(msg); 
+        }   
+    </script>
+</head>
+
+<body>
+    <p>loaf of bread</p>
+    <p>quart of milk</p>
+    <p>stick of butter</p> <input type="button" name="button1" value="Show the Nodes" onclick="getHTMLNodes()" />
+</body>
+
+</html>

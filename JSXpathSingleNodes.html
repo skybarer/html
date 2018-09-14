@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        function loadXMLDoc(dname) {
+          var  xhttp = new XMLHttpRequest();
+            xhttp.open("GET", dname, false);
+            xhttp.send("");
+            return xhttp.responseXML;
+        }
+        xml = loadXMLDoc("classes.xml");
+        path = "//class/rating";
+        var result = xml.evaluate(path, xml, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        if (result != null) {
+            alert(result.singleNodeValue.textContent);
+        }
+    </script>
+</body>
+</html>

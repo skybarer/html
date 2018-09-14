@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Flexbox</title>
+    <style>
+        .flex {
+            width: 350px;
+            height: 200px;
+            border: 1px solid #555;
+            font: 14px Arial;
+            display: flex;
+            flex-direction: row;
+            /*flex-direction: column;*/
+        }
+
+        .flex>div {
+            flex: 1;
+            margin: 10px 10px 10px 10px;
+        }
+
+        .flex>div:nth-child(1) {
+            background: #009246;
+        }
+
+        .flex>div:nth-child(2) {
+            background: #F1F2F1;
+        }
+
+        .flex>div:nth-child(3) {
+            background: #CE2B37;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Flexbox Example</p>
+    <div class="flex">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+    </div>
+</body>
+
+</html>
